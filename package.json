@@ -1,5 +1,5 @@
 {
-  "name": "ansi-to-react",
+  "name": "ansi-to-react-with-classes",
   "version": "0.0.2",
   "description": "ANSI to React Elements",
   "main": "index.js",
@@ -13,7 +13,7 @@
   "author": "Kyle Kelley <rgbkrk@gmail.com>",
   "license": "MPL-2.0",
   "dependencies": {
-    "ansi-to-json": "^1.0.0"
+    "ansi_up": "github:ionicabizaukitchen/ansi_up#5baf27f567e1bf392cbc997c1e511e52611996d6"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0-0"

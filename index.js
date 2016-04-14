@@ -1,29 +1,36 @@
-const React = require('react');
+var React = require('react');
+var AnsiUp = require('ansi_up');
+ 
+var ansiToJSON = function(input) {
+  return AnsiUp.ansi_to_json(input, {
+    json: true,
+    remove_empty: true,
+    use_classes: true
+  });
+} 
 
-const ansiToJSON = require('ansi-to-json');
-
-function ansiJSONtoStyleBundle(ansiBundle) {
-  const style = {};
+var ansiJSONtoStyleBundle = function(ansiBundle) {
+  var className = '';
   if (ansiBundle.bg) {
-    style.backgroundColor = `rgb(${ansiBundle.bg})`;
+    className = ansiBundle.bg + '-bg';
   }
   if (ansiBundle.fg) {
-    style.color = `rgb(${ansiBundle.fg})`;
+    className += (className ? ' ' : '') + ansiBundle.fg + '-fg';
   }
   return {
     content: ansiBundle.content,
-    style,
+    className: className
   };
 }
 
-function ansiToInlineStyle(text) {
+var ansiToInlineStyle = function(text) {
   return ansiToJSON(text).map(ansiJSONtoStyleBundle);
 }
 
-function inlineBundleToReact(bundle, key) {
+var inlineBundleToReact = function(bundle, key) {
   return React.createElement('span', {
-    style: bundle.style,
-    key,
+    className: bundle.className,
+    key: key
   }, bundle.content);
 }
 
