@@ -1,6 +1,6 @@
 {
   "name": "ansi-to-react-with-classes",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "ANSI to React Elements",
   "main": "lib/index.js",
   "scripts": {
@@ -25,7 +25,7 @@
   "author": "Kyle Kelley <rgbkrk@gmail.com>",
   "license": "MPL-2.0",
   "dependencies": {
-    "anser": "^1.1.0",
+    "anser": "git://github.com/pplewa/anser.git#68a48029ab2368225708529e767e831112ab1ea0",
     "escape-carriage": "^1.0.1"
   },
   "peerDependencies": {
