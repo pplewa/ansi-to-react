@@ -1,16 +1,27 @@
-var React = require('react');
-var AnsiUp = require('ansi_up');
- 
-var ansiToJSON = function(input) {
-  return AnsiUp.ansi_to_json(input, {
+const React = require('react');
+const Anser = require('anser');
+const escapeCarriageReturn = require('escape-carriage');
+
+/**
+ * ansiToJson
+ * Convert ANSI strings into JSON output.
+ *
+ * @name ansiToJSON
+ * @function
+ * @param {String} input The input string.
+ * @return {Array} The parsed input.
+ */
+function ansiToJSON(input) {
+  input = escapeCarriageReturn(input);
+  return Anser.ansiToJson(input, {
     json: true,
     remove_empty: true,
     use_classes: true
   });
-} 
+}
 
-var ansiJSONtoStyleBundle = function(ansiBundle) {
-  var className = '';
+function ansiJSONtoStyleBundle(ansiBundle) {
+  let className = '';
   if (ansiBundle.bg) {
     className = ansiBundle.bg + '-bg';
   }
