@@ -1,6 +1,6 @@
 {
   "name": "ansi-to-react-with-classes",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "ANSI to React Elements",
   "main": "lib/index.js",
   "scripts": {
