@@ -48,7 +48,7 @@ var inlineBundleToReact = function(bundle, key) {
 
 function Ansi(props) {
   return props.linkify ? 
-  	React.createElement(Linkify.default || Linkify, null, React.createElement('code', {}, ansiToInlineStyle(props.children).map(inlineBundleToReact))) : 
+  	React.createElement(Linkify.default || Linkify, { properties: { target: '_blank' } }, React.createElement('code', {}, ansiToInlineStyle(props.children).map(inlineBundleToReact))) : 
   	React.createElement('code', {}, ansiToInlineStyle(props.children).map(inlineBundleToReact));
 }
 
