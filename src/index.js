@@ -1,7 +1,7 @@
 const React = require('react');
 const Anser = require('anser');
 const escapeCarriageReturn = require('escape-carriage');
-const Linkify = require('react-linkify');
+const Linkify = require('react-linkify-part');
 
 /**
  * ansiToJson
@@ -47,8 +47,8 @@ var inlineBundleToReact = function(bundle, key) {
 }
 
 function Ansi(props) {
-  return props.linkify ? 
-  	React.createElement(Linkify.default || Linkify, { properties: { target: '_blank' } }, React.createElement('code', {}, ansiToInlineStyle(props.children).map(inlineBundleToReact))) : 
+  return props.linkifyProps ? 
+  	React.createElement(Linkify.default || Linkify, props.linkifyProps, React.createElement('code', {}, ansiToInlineStyle(props.children).map(inlineBundleToReact))) : 
   	React.createElement('code', {}, ansiToInlineStyle(props.children).map(inlineBundleToReact));
 }
 
