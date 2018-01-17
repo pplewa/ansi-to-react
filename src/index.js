@@ -1,4 +1,5 @@
 const React = require('react');
+const PropTypes = require('prop-types');
 const Anser = require('anser');
 const escapeCarriageReturn = require('escape-carriage');
 const Linkify = require('react-linkify-part');
@@ -53,7 +54,7 @@ function Ansi(props) {
 }
 
 Ansi.propTypes = {
-  children: React.PropTypes.string,
+  children: PropTypes.string,
 };
 
 module.exports = Ansi;
